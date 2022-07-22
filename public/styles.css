@@ -36,21 +36,21 @@ img {
     line-height: 30px;
     color: #000;
     margin: 0 auto;
+    letter-spacing: -.25px;
 }
+
 
 @media screen and (max-width: 480px) {
     .title {
         font-size: 75px;
         margin: 0 auto;
         margin-left: -5px;
-        letter-spacing: 1px;
+        letter-spacing: 0px;
         background-size: 80%;
     }
     .text {
-        font-size: 14px
+        font-size: 14px;
 
     }
-
-    
   }
 
