@@ -100,12 +100,12 @@ a:visited {
     margin-bottom: 5px;
 }
 
-
-.contact:hover ~ .contact-pic { opacity: 100%;}
-.github:hover ~ .github-pic { opacity: 100%;}
-.projects:hover ~ .projects-pic { opacity: 100%;}
-.history:hover ~ .history-pic { opacity: 100%;}
-
+@media (hover) {
+    .contact:hover ~ .contact-pic { opacity: 100%;}
+    .github:hover ~ .github-pic { opacity: 100%;}
+    .projects:hover ~ .projects-pic { opacity: 100%;}
+    .history:hover ~ .history-pic { opacity: 100%;}
+}
 
 @media screen and (max-width: 480px) {
     .title {
