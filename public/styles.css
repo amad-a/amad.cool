@@ -101,7 +101,9 @@ a:visited {
     }
     .text {
         font-size: 14px;
-        width: 300px;
+    }
+    .para {
+        width: 320px;
     }
   }
 
