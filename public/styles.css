@@ -8,19 +8,42 @@
     src: url('monoid/Monoid-Retina.woff') format('woff');
 }
 
+body {
+    overflow-x: hidden;
+}
+
+.center {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+
 .title {
-	font-size: 70px;
+    font-size: 20px;
     width: 100vw;
-    font-family: 'Dom';
-    text-align: center;
+    font-family: 'monoid';
     font-weight: 700;
-	background-clip: text;
-	-webkit-background-clip: text;
-	color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     background-repeat: repeat;
     background-size: 25%;
-	background-image: url('../images/bubbles2.png');
     image-rendering: pixelated;
+    color: black;
+}
+
+body {
+    align-items: center;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: white;
 }
 
 img {
@@ -29,7 +52,6 @@ img {
 
 .text {
     font-family: 'Monoid';
-    text-align: center;
     padding-top: 5px;
     font-size: 12px;
     line-height: 22px;
@@ -38,89 +60,64 @@ img {
     letter-spacing: -.25px;
     padding: 15px 0px 15px 0px;
     max-width: 500px;
+    font-weight: 800;
 }
 
-.subtitle {
-    font-size: 17px;
+.email {
+    color: blue;
 }
 
-.link-holder {
-    display: grid;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 3;
-    margin: 0 auto;
-    max-width: 300px;
-    margin-top: -10px;
+.email:hover {
+    color: blue;
+    text-decoration: underline;
 }
 
-.grid1 {
-    grid-column: 2;
-    grid-row: 1;
-}
-.grid2 {
-    grid-column: 1;
-    grid-row: 2;
-}
-.grid3 {
-    grid-column: 2;
-    grid-row: 3;
-}
-.grid4 {
-    grid-column: 3;
-    grid-row: 2;
-}
-.grid-center {
-    grid-column: 2;
-    grid-row: 2;
-}
-.kong {
-    margin: 0 auto 10px;
-}
-a {
-    color: rgb(184, 92, 27);
-}
-a:hover {
-    text-decoration: none;
-}
-a:visited {
-    color: rgb(133, 67, 21);
-}
-.projects-pic, .github-pic, .contact-pic, .history-pic {
-    opacity: 0%;
-    image-rendering: pixelated;
-    z-index: -1;
-}
-
-.projects {
-    padding-top: 0px;
-}
 .contact {
     margin-bottom: 5px;
 }
 
 @media (hover) {
-    .contact:hover ~ .contact-pic { opacity: 100%;}
-    .github:hover ~ .github-pic { opacity: 100%;}
-    .projects:hover ~ .projects-pic { opacity: 100%;}
-    .history:hover ~ .history-pic { opacity: 100%;}
+    .contact:hover~.contact-pic {
+        opacity: 100%;
+    }
+
+    .github:hover~.github-pic {
+        opacity: 100%;
+    }
+
+    .projects:hover~.projects-pic {
+        opacity: 100%;
+    }
+
+    .history:hover~.history-pic {
+        opacity: 100%;
+    }
 }
 
 @media screen and (max-width: 480px) {
-    .title {
-        font-size: 70px;
-        margin: 0 auto;
-        margin-left: -5px;
-        letter-spacing: -1px;
-        background-size: 80%;
-        image-rendering: pixelated
+
+    :root {
+        margin-left: 20px;
+        overflow-x: hidden;
     }
+
+    .center {
+        margin: auto;
+        width: 100%;
+        padding: 0px;
+    }
+
+
+    .title {
+        font-size: 20px;
+        padding: 15px 0px 0px 0px;
+    }
+
     .text {
         font-size: 14px;
     }
+
     .para {
         width: 320px;
     }
-  }
-
+}
