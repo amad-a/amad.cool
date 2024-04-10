@@ -16,25 +16,30 @@
   }
 </style>
 
-<body>
+<body style="height: 4000px;" onscroll="scroll()">
   <script>
-    function printRange(value) {
-      console.log('value', value);
-      document.getElementById("orchid").src = `public/orchidz/orchid-frames/bulk-dither-test/dithered-output_frame00${value}.png`;
+    let range = [...Array(32).keys()];
+    function scroll() {
+      console.log('haiii', Math.ceil(window.scrollY/95));
+      let floorScroll = Math.ceil(window.scrollY/95);
+      let scrollPosition = window.scrollY;
+      document.getElementById("orchid").src = `public/orchidz/orchid-frames/bulk-dither-test/dithered-output_frame00${floorScroll + 2}.png`;
+      console.log()
     }
-
   </script>
 
-  <div id="slider" class="field-row" style="width: 400px; zoom: 1.20; background-color: rgb(255, 164, 229);; padding: 5px; border: 2mm ridge rgba(255, 144, 224, 1);">
+  <!-- <div id="slider" class="field-row" style="width: 400px; zoom: 1.20; background-color: rgb(255, 164, 229);; padding: 5px; border: 2mm ridge rgba(255, 144, 224, 1);">
     <label for="range25"></label>
     <label for="range26" style="font-size: 20px; font-weight: bold; font-style: italic;">Drag me -></label>
     <input id="range26" oninput="printRange(this.value)" type="range" min="2" max="32" value="0" />
     <br><br>
-  </div>
-  <div style="font-family: 'ArgentPixelCF'; font-size:80px;">orchids come 
+  </div> -->
+  <div style="font-family: 'ArgentPixelCF'; font-size:80px; padding-top: 20px; position: fixed; color:blue;">orchids come 
     so<br>easy  for
-    some<br> people</div>
-  <img id="orchid" height="1500px" style="opacity: .4; position:absolute; top:-350px; left: -300px; z-index: -1;"
+    some<br> people
+  </div>
+  <img id="orchid" height="1500px" style="opacity: .4; position:fixed;
+  top:0; top:-350px; left: -300px; z-index: -1;"
     src="public/orchidz/orchid-frames/bulk-dither-test/dithered-output_frame002.png"></img>
 </body>
 
