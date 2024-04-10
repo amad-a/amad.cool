@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://unpkg.com/98.css" />
+  <link rel="stylesheet" href="public/styles.css" />
+  <title>Orchids Test Page</title>
+</head>
+<style>
+  :root {
+    background: linear-gradient(to left top, #ffffff, rgb(255, 121, 226));
+    background-attachment: fixed;
+    /*edit*/
+  }
+</style>
+
+<body>
+  <script>
+    function printRange(value) {
+      console.log('value', value);
+      document.getElementById("orchid").src = `public/orchidz/orchid-frames/bulk-dither-test/dithered-output_frame00${value}.png`;
+    }
+
+  </script>
+
+  <div id="slider" class="field-row" style="width: 400px; zoom: 1.20; background-color: #c3c3c3
+
+    ; padding: 5px;">
+    <label for="range25"></label>
+    <label for="range26" style="font-size: 20px; font-weight: bold; font-style: italic;">Drag me -></label>
+    <input id="range26" oninput="printRange(this.value)" type="range" min="2" max="32" value="0" />
+    <br><br>
+  </div>
+  <div style="font-family: 'ArgentPixelCF'; font-size:80px;">orchids come 
+    so<br>easy  for
+    some<br> people</div>
+  <img id="orchid" height="1500px" style="opacity: .5; position:absolute; top:-350px; left: -300px; z-index: -1;"
+    src="public/orchidz/orchid-frames/bulk-dither-test/dithered-output_frame002.png"></img>
+</body>
+
+</html>

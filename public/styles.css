@@ -8,7 +8,13 @@
     src: url('monoid/Monoid-Retina.woff') format('woff');
 }
 
+@font-face {
+    font-family: 'ArgentPixelCF';
+    src: url('ArgentPixelCF-Italic.woff') format('woff');
+}
+
 body {
+    image-rendering: pixelated;
     overflow-x: hidden;
 }
 
