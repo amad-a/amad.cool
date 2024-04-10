@@ -13,17 +13,29 @@
     background: linear-gradient(to left top, #ffffff, rgb(255, 121, 226));
     background-attachment: fixed;
     background-size: cover;
+    overscroll-behavior: none;
     /* margin-left: -40px; */
   }
 </style>
 
 <body style="height: 4000px; overscroll-behavior: none;" onscroll="scroll()">
   <script>
+
     let range = [...Array(32).keys()];
+    for (let idx = 2; idx < 33; idx++) {
+      let preloadLink = document.createElement("link");
+      preloadLink.href = `public/orchidz/orchid-frames/bulk-dither-test/dithered-output_frame00${idx}.png`;
+      preloadLink.rel = "preload";
+      preloadLink.as = "image";
+      document.head.appendChild(preloadLink);
+      console.log('preloaded', idx);
+    }
+    console.log('head', )
     function scroll() {
       console.log('haiii', Math.ceil(window.scrollY / 95));
-      let floorScroll = Math.ceil(window.scrollY / 95);
+      let floorScroll = Math.ceil(window.scrollY / 112);
       let scrollPosition = window.scrollY;
+      console.log('floor scroll', floorScroll);
       document.getElementById("orchid").src = `public/orchidz/orchid-frames/bulk-dither-test/dithered-output_frame00${floorScroll + 2}.png`;
       console.log()
     }
