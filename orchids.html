@@ -12,16 +12,17 @@
   :root {
     background: linear-gradient(to left top, #ffffff, rgb(255, 121, 226));
     background-attachment: fixed;
+    margin-left: -40px;
     /*edit*/
   }
 </style>
 
-<body style="height: 4000px;" onscroll="scroll()">
+<body style="height: 4000px; margin-left: 40px;" onscroll="scroll()">
   <script>
     let range = [...Array(32).keys()];
     function scroll() {
-      console.log('haiii', Math.ceil(window.scrollY/95));
-      let floorScroll = Math.ceil(window.scrollY/95);
+      console.log('haiii', Math.ceil(window.scrollY / 95));
+      let floorScroll = Math.ceil(window.scrollY / 95);
       let scrollPosition = window.scrollY;
       document.getElementById("orchid").src = `public/orchidz/orchid-frames/bulk-dither-test/dithered-output_frame00${floorScroll + 2}.png`;
       console.log()
@@ -34,7 +35,8 @@
     <input id="range26" oninput="printRange(this.value)" type="range" min="2" max="32" value="0" />
     <br><br>
   </div> -->
-  <div style="font-family: 'ArgentPixelCF'; font-size:80px; padding-top: 20px; position: fixed; color:blue;">orchids come 
+  <div style="font-family: 'ArgentPixelCF'; font-size:80px; padding-top: 20px; position: fixed; color:blue;">orchids
+    come 
     so<br>easy  for
     some<br> people
   </div>
