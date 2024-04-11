@@ -40,7 +40,6 @@
 body {
     image-rendering: pixelated;
     overflow-x: hidden;
-    -webkit-overflow-scrolling: auto;
 }
 
 .center {
