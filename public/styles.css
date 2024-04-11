@@ -127,7 +127,6 @@ img {
 @media screen and (max-width: 480px) {
 
     :root {
-        margin-left: 20px;
         overflow-x: hidden;
     }
 
