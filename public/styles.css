@@ -13,6 +13,30 @@
     src: url('ArgentPixelCF-Italic.woff') format('woff');
 }
 
+#orchid {
+    height: 1000px;
+    opacity: .7;
+    position: fixed;
+    top: 0;
+    bottom: 0px;
+    left: 200px;
+    z-index: -1;
+}
+
+@media (max-width: 1250px) {
+#orchid {
+    height: 800px;
+    margin-left: -200px;
+    margin-top: -100px;
+    opacity: .65;
+    position: fixed;
+    top: 0;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1;
+}   
+  }
+
 body {
     image-rendering: pixelated;
     overflow-x: hidden;

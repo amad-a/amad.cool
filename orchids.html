@@ -10,7 +10,7 @@
 </head>
 <style>
   :root {
-    background: linear-gradient(to left top, #ffffff, rgb(255, 121, 226));
+    background: linear-gradient(to left top, #6e6e6e, rgb(113, 113, 255));
     background-attachment: fixed;
     background-size: cover;
     overscroll-behavior: none;
@@ -18,26 +18,35 @@
   }
 </style>
 
-<body style="height: 4000px; overscroll-behavior: none;" onscroll="scroll()">
+<body style="height: 16000px; overscroll-behavior: none;" onscroll="scroll()">
   <script>
 
+    const orc = 'orc3'
+
     let range = [...Array(32).keys()];
-    for (let idx = 2; idx < 33; idx++) {
+    let limiter = 51;
+    let iterator
+
+    //preload images
+    for (let idx = 1; idx < 273; idx++) {
       let preloadLink = document.createElement("link");
-      preloadLink.href = `public/orchidz/orchid-frames/bulk-dither-test/dithered-output_frame00${idx}.png`;
+      preloadLink.href = `public/all-orchids/orchid-${idx}.png`;
       preloadLink.rel = "preload";
       preloadLink.as = "image";
       document.head.appendChild(preloadLink);
       console.log('preloaded', idx);
     }
-    console.log('head', )
+
+
+    let orcNumber = 1;
+
+
+
     function scroll() {
-      console.log('haiii', Math.ceil(window.scrollY / 95));
-      let floorScroll = Math.ceil(window.scrollY / 112);
+      let floorScroll = Math.ceil(window.scrollY / 57);
       let scrollPosition = window.scrollY;
       console.log('floor scroll', floorScroll);
-      document.getElementById("orchid").src = `public/orchidz/orchid-frames/bulk-dither-test/dithered-output_frame00${floorScroll + 2}.png`;
-      console.log()
+      document.getElementById("orchid").src = `public/all-orchids/orchid-${floorScroll + 1}.png`;
     }
   </script>
 
@@ -47,14 +56,28 @@
     <input id="range26" oninput="printRange(this.value)" type="range" min="2" max="32" value="0" />
     <br><br>
   </div> -->
-  <div style="font-family: 'ArgentPixelCF'; font-size:80px; padding-top: 20px; position: fixed; color:rgb(89, 0, 76);">orchids
+  <div style="font-family: 'ArgentPixelCF'; font-size: 77px; padding-top: 20px; position: fixed; color:rgb(0, 0, 0);">
+    orchids
     come 
     so<br>easy  for
     some<br> people
   </div>
-  <img id="orchid" height="1500px" style="opacity: .4; position:fixed;
+  <div style="font-family: 'ArgentPixelCF'; font-size:77px; padding-top: 24px; padding-left: 2px; position: fixed; color:rgb(255, 255, 255);">
+    orchids
+    come 
+    so<br>easy  for
+    some<br> people
+  </div>
+  <!-- <img id="orchid-static" height="1500px" style="opacity: .6; position:fixed;
   top:0; top:-350px; left: -300px; z-index: -1;"
-    src="public/orchidz/orchid-frames/bulk-dither-test/dithered-output_frame002.png"></img>
+    src="public/orc4/d-orc4-0050.png"></img>
+  <img id="orchid-static" height="1500px" style="opacity: .6; position:fixed;
+  top:0; top:-350px; left: -300px; z-index: -1;"
+    src="public/orc1/d-orc1-0050.png"></img>
+    <img id="orchid-static" height="1500px" style="opacity: .6; position:fixed;
+    top:0; top:-350px; left: -300px; z-index: -1;"
+      src="public/orc5/d-orc5-0050.png"></img> -->
+  <img id="orchid" src="public/all-orchids/orchid-1.png"></img>
 </body>
 
 </html>
