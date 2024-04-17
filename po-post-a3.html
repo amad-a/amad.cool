@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <link rel="stylesheet" href="public/styles.css" />
+    <link rel="preload" href="public/ArgentPixelCF-Italic.woff" as="font" type="font/woff" crossorigin>
+    <title>Document</title>
+</head>
+<style>
+    :root {
+        transform: rotate(90deg); 
+    }
+</style>
+
+<body
+    style="margin: 0px 0px 0px 0px; zoom: 1.4; background-image: url(public/BLBAK.jpg); background-size: 175px;">
+    <div
+        style="margin-top: -75px; text-align: center; color: rgb(255, 0, 0); padding-bottom: 35px; font-size: 75px; font-family: 'ArgentPixelCF'; text-shadow:  #000000 1px 1px 10px;">
+        Crystal Clear
+    </div>
+    <div style="display: flex; align-items: center;  justify-content: center;">
+        <img id="cc-image" src="public/crystal-clear-post-images/1.png" style="height: 500px;"></img>
+    </div>
+    <div
+        style="padding-top: 40px; color: rgb(255, 0, 0);  font-size: 25px; font-family: 'ArgentPixelCF'; display: flex; align-items: top;  justify-content: center; column-gap:0px;">
+        <div style="text-align: left;">
+            <div style="font-size: 55px;">
+                Palestine<br>Online
+            </div>
+            <div style="padding-top: 15px; font-size: 30px;">
+                A Tour Through the<br>
+                Early Palestinian Web
+            </div>
+
+        </div>
+        <div style="padding-top: 10px; text-align: right; font-size: 30px;">
+            Bayt Al Mamzar <br> April 25 2024<br> 7:30 pm - 8:30 pm
+            <br>
+            <img style="padding-top: 36px;" src="public/SALASIL_logomark.svg" height="70px"></img>
+        </div>
+    </div>
+    <script>
+        // Array to store image filenames
+        var imageFiles = [
+            "1.png",
+            "2.png",
+            "3.png",
+            "4.png",
+            "5.png",
+            "6.png",
+            "7.png",
+            "8.png",
+            "9.png",
+            "10.png",
+            "11.png",
+            "12.png",
+            "13.png",
+            "14.png",
+            "15.png",
+            "16.png"
+        ];
+
+        var currentIndex = 0; // Current index in the imageFiles array
+
+        function changeImage() {
+            // Get the image element
+            var img = document.getElementById("cc-image");
+            console.log('imag', img);
+            // Set the src attribute to the next image filename
+            img.src = 'public/crystal-clear-post-images/' + imageFiles[currentIndex];
+            // Increment the index
+            currentIndex = (currentIndex + 1) % imageFiles.length;
+        }
+
+        // Call changeImage initially to start the cycling
+        changeImage();
+
+        // Set an interval to call changeImage every second (1000 milliseconds)
+        setInterval(changeImage, 1250);
+    </script>
+
+
+
+</body>
+
+</html>
