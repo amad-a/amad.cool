@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://unpkg.com/98.css" />
+  <link rel="stylesheet" href="public/styles.css" />
+  <link rel="preload" href="public/ArgentPixelCF-Italic.woff" as="font" type="font/woff" crossorigin>
+  <title>ORchids</title>
+</head>
+<style>
+  :root {
+    padding-left: -400px;
+    background: linear-gradient(to left top, #6e6e6e, rgb(113, 113, 255));
+    background-attachment: fixed;
+    background-size: cover;
+    overscroll-behavior: none;
+    /* background: linear-gradient(to left top, #6e6e6e, rgb(113, 113, 255)); */
+
+    /* margin-left: -40px; */
+  }
+
+
+  body {
+    background-size: cover;
+    overscroll-behavior: none;
+    background-image: url('public/paloma-bg.png');
+    background-size: 2000px;
+    image-rendering: pixelated;
+
+  }
+</style>
+
+<body style="overscroll-behavior: none;" onscroll="scroll()">
+  <script>
+
+    const orc = 'orc3'
+
+    let range = [...Array(32).keys()];
+    let  limiter = 51;
+    let iterator
+
+    //preload images
+    for (let idx = 1; idx < 273; idx++) {
+      let preloadLink = document.createElement("link");
+      preloadLink.href = `public/all-orchids/orchid-${idx}.png`;
+      preloadLink.rel = "preload";
+      preloadLink.as = "image";
+      document.head.appendChild(preloadLink);
+      console.log('preloaded', idx);
+    }
+
+    let auto_count = 1
+    let auto_count2 = 1
+    let orchid_count = 1
+    let orchid_count2 = 2
+    let orchid_iterator = 0
+    let stanzaCount = 0;
+
+    let orc_nums = [0, 1, 3, 4, 5, 6, 7]
+
+    let stanzas = [
+      'orchids come<br>so easy for<br>some people<br>small agony<br>conduits paying<br>forward<br>',
+      "balm and sediment<br>light work<br>",
+      'every bloom<br>seems<br>an angel’s face<br>looking murderously<br>',
+      'soft claw of mouth<br>that praises<br>cultivar contained<br>',
+      'no, each one facing<br>like it greets us<br>sinking upward<br>',
+      'every vapor after <br> was its own orchid<br>stupid effluvia<br>',
+      'creator, castrator<br>wax veins<br>the shooting kind<br>',
+      'broken ornament<br>bulb outbred<br>and medicated<br>',
+      'manifold works of<br>our predator<br>like a gambler<br>every first rule followed<br>',
+      'we think<br>we could make a garden<br>out of these<br>surround it with<br>spears and wire<br>and dogs<br>',
+      'soft purple<br>labial folding<br>lovey lovely dresses<br>',
+      'an astonishing success<br>this fearful<br>dinner party<br>',
+      'unturned<br>not to possess, to touch<br>or we did<br>and we did<br>touch<br>',
+      'fragrant with<br>spit and heat<br>we think<br>I understand<br>this science<br>and rebloom<br>',
+      'those orchids and their<br>sunken cat faces and<br>cloven lips<br>',
+      'every orchid is a she<br>each splits and falls<br>like bones<br>collapsed under their<br>own weight<br>',
+      'this flower lost<br>its mind<br>',
+      'these gifts<br>so unhappy<br>as a rule<br>',
+      ''
+
+    ]
+
+
+
+    function onError1() {
+      orchid_iterator++;
+      orchid_count = orc_nums[Math.floor(Math.random() * orc_nums.length)];
+      auto_count = 1;
+      if (orchid_iterator === 7) orchid_iterator = 0;
+    }
+
+    function onError2() {
+      orchid_iterator++;
+      orchid_count2 = orc_nums[Math.floor(Math.random() * orc_nums.length)];
+      auto_count = 1;
+      if (orchid_iterator === 7) orchid_iterator = 0;
+    }
+
+
+    setInterval(function () {
+      let orc = document.getElementById("orchid")
+      orc.src = `public/auto-orchids/d-orc${orchid_count}-${auto_count.toString().padStart(4, '0')}.png`
+      auto_count++;
+
+      let orc2 = document.getElementById("orchid2")
+      orc2.src = `public/auto-orchids/d-orc${orchid_count2}-${auto_count.toString().padStart(4, '0')}.png`
+      auto_count2++;
+    }, 50);
+
+    addEventListener("keypress", (event) => { });
+
+    function nextStanza(){
+      console.log('st', stanzaCount);
+      document.getElementById('text1').innerHTML = stanzas[stanzaCount];
+      document.getElementById('text2').innerHTML = stanzas[stanzaCount];
+
+      stanzaCount++;
+    }
+
+    onkeypress = (event) => { 
+      nextStanza();
+    };
+  </script>
+
+
+
+
+  <img id="orchid" src="public/auto-orchids/d-orc0-0001.png"
+    style="opacity: 1; padding-top: 200px; position: absolute; left: -100px;" onerror="onError1()"></img>
+  <img id="orchid2" src="public/auto-orchids/d-orc1-0001.png" style=" height: 1000px; right: 0; opacity: 1; padding-top: 200px; position: absolute; -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);" onerror="onError2()"></img>
+  <div id='text1' style="font-family: 'ArgentPixelCF'; font-size: 85px; padding-top: 120px; padding-left: 604px; position: fixed; color:rgb(0, 0, 0);">
+  </div>
+  <div id='text2' style="font-family: 'ArgentPixelCF'; font-size:85px; padding-top: 124px; padding-left: 602px; position: fixed; color:rgb(255, 255, 255);">
+
+  </div>
+
+</body>
+
+</html>
