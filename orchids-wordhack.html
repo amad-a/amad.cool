@@ -83,9 +83,12 @@
 
     ]
 
+    let orcy1 = 0;
+    let orcy2 = 1;
 
 
     function onError1() {
+      console.log('errrr')
       orchid_iterator++;
       orchid_count = orc_nums[Math.floor(Math.random() * orc_nums.length)];
       auto_count = 1;
@@ -95,6 +98,7 @@
     function onError2() {
       orchid_iterator++;
       orchid_count2 = orc_nums[Math.floor(Math.random() * orc_nums.length)];
+      orchid_count = orc_nums[Math.floor(Math.random() * orc_nums.length)];
       auto_count = 1;
       if (orchid_iterator === 7) orchid_iterator = 0;
     }
@@ -110,6 +114,7 @@
       auto_count2++;
     }, 50);
 
+
     addEventListener("keypress", (event) => { });
 
     function nextStanza(){
@@ -120,6 +125,7 @@
       stanzaCount++;
     }
 
+
     onkeypress = (event) => { 
       nextStanza();
     };
@@ -128,9 +134,9 @@
 
 
 
-  <img id="orchid" src="public/auto-orchids/d-orc0-0001.png"
+  <img id="orchid" src="public/auto-orchids/d-orc1-0001.png"
     style="opacity: 1; padding-top: 200px; position: absolute; left: -100px;" onerror="onError1()"></img>
-  <img id="orchid2" src="public/auto-orchids/d-orc1-0001.png" style=" height: 1000px; right: 0; opacity: 1; padding-top: 200px; position: absolute; -webkit-transform: scaleX(-1);
+  <img id="orchid2" src="public/auto-orchids/d-orc3-0001.png" style=" height: 1000px; right: 0; opacity: 1; padding-top: 200px; position: absolute; -webkit-transform: scaleX(-1);
   transform: scaleX(-1);" onerror="onError2()"></img>
   <div id='text1' style="font-family: 'ArgentPixelCF'; font-size: 85px; padding-top: 120px; padding-left: 604px; position: fixed; color:rgb(0, 0, 0);">
   </div>
