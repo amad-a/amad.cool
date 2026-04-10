@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>KHAJISTAN O.W.I.</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://unpkg.com/@neodrag/vanilla@latest/dist/umd/index.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/xp.css" />
+  </head>
+
+  <style>
+    @font-face {
+      font-family: 'VGA';
+      /* A name for your custom font */
+      src: url('leaflets/fonts/Web437_IBM_VGA_8x16.woff') format('woff');
+      /* Path(s) to font files */
+
+      /* Optional: define font style */
+      /* Other optional properties like font-display, unicode-range, etc. */
+    }
+
+    img {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+    }
+
+    img.petal {
+      image-rendering: pixelated;
+
+      width: 125px;
+      aspect-ratio: initial;
+      /* height: 100px; */
+      position: absolute;
+      background-repeat: repeat;
+      padding: 10px;
+    }
+
+    .petal:hover {
+      cursor: pointer;
+    }
+
+    body {
+      background-color: black;
+      image-rendering: pixelated;
+      background-blend-mode: lighten;
+      background-size: 200px;
+    }
+
+    html,
+    body,
+    #container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    /* Tooltip text */
+    .tooltiptext {
+      visibility: hidden;
+      /* Hidden by default */
+      width: 130px;
+      background-color: black;
+      color: #ffffff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+      position: relative;
+      z-index: 1;
+      /* Ensure tooltip is displayed above content */
+    }
+
+    .hover-text-container {
+      pointer-events: none;
+      visibility: hidden;
+
+      z-index: 999999999999;
+      /* margin-top: 50px; */
+      -webkit-font-smoothing: none;
+      font-family: 'VGA';
+      font-weight: normal;
+      color: #00a606;
+      position: absolute;
+      display: flex;
+      width: 100%;
+      font-size: 45px;
+      justify-content: center;
+      align-items: center;
+      zoom: .65;
+      height: 100%;
+      /* Optional: define font weight */
+      /* font-style: normal; */
+    }
+
+    .hover-text {
+      background-color: black;
+
+      border: 3px solid #00a606;
+      padding: 20px 28px;
+    }
+
+    /* Show the tooltip text on hover */
+    .img-container:hover .tooltiptext {
+      visibility: visible;
+    }
+    
+  </style>
+
+  <body>
+    <div class="hover-text-container">
+      <div class="hover-text">Click leaflet to view.</div>
+    </div>
+    <div id="container"></div>
+
+    <script type="module">
+      function getRandomNonRepeatingElements(arr, n) {
+        // 1. Create a copy of the array
+        const shuffledArray = [...arr];
+
+        // 2. Shuffle the copied array using Fisher-Yates (Knuth) shuffle algorithm
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffledArray[i], shuffledArray[j]] = [
+            shuffledArray[j],
+            shuffledArray[i],
+          ]; // Swap elements
+        }
+
+        // 3. Extract the first n elements
+        return shuffledArray.slice(0, n);
+      }
+
+      let zIndex = 1000000;
+      let lowestZindex = 1000000;
+
+      // const dragInstances = new NeoDrag.Draggable(document.querySelectorAll('.drag'));
+      // console.log('draggy', dragInstance);
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min); // Ensure min is an integer
+        max = Math.floor(max); // Ensure max is an integer
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+
+      TweenLite.set('#container', { perspective: 1000 });
+      TweenLite.set('img', { xPercent: '-50%', yPercent: '-50%' });
+
+      var total = 100;
+      var container = document.getElementById('container'),
+        w = window.innerWidth,
+        h = window.innerHeight;
+
+      let seeds = [
+        // [],
+        [8, 175],
+        [16, 125],
+        [3, 250],
+      ];
+
+      let randomLeaflet = `leaflets/leaflets/dithered/${getRandomInt(9)}.png`;
+
+      for (let i = 0; i < 6 ; i++) {
+        var img = document.createElement('img');
+        var imgContainer = document.createElement('div');
+
+        var tooltip = document.createElement('span');
+
+        imgContainer.className = 'img-container';
+        img.src = randomLeaflet;
+        img.onclick = () => console.log('pop');
+        img.style.zIndex = '69';
+        img.style.width = '250px';
+        img.style.opacity = `${85 + getRandomInt(15)}%`;
+        TweenLite.set(img, {
+          attr: { class: 'petal' },
+          x: R(0, w),
+          y: R(-500, -450),
+          z: R(-200, 200),
+        });
+
+        imgContainer.appendChild(img);
+
+        container.appendChild(imgContainer);
+        animm(img);
+      }
+
+      function animm(elm) {
+        const tweens = [
+          TweenMax.to(elm, R(6, 15), {
+            y: h + 100,
+            ease: Linear.easeNone,
+            repeat: -1,
+            delay: 0,
+          }),
+          TweenMax.to(elm, R(4, 8), {
+            x: '+=100',
+            rotationZ: R(0, 60),
+            repeat: -1,
+            yoyo: true,
+            ease: Sine.easeInOut,
+          }),
+          TweenMax.to(elm, R(2, 8), {
+            rotationX: R(0, 180),
+            rotationY: R(0, 90),
+            repeat: -1,
+            yoyo: true,
+            ease: Sine.easeInOut,
+            delay: -5,
+          }),
+        ];
+
+        elm.addEventListener('mouseenter', () => {
+          tweens.forEach((t) => t.pause());
+          elm.style.outline = '3px solid #00a606';
+          document.querySelector(
+            '.hover-text-container',
+          ).style.visibility = 'visible';
+
+    
+        });
+
+        elm.addEventListener('mouseleave', () => {
+          tweens.forEach((t) => t.resume());
+          elm.style.outline = 'none';
+          document.querySelector(
+            '.hover-text-container',
+          ).style.visibility = 'hidden';
+
+
+        });
+      }
+      function R(min, max) {
+        return min + Math.random() * (max - min);
+      }
+    </script>
+  </body>
+</html>
